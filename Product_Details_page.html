@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商品详情页</title>
+		<link rel="stylesheet" type="text/css" href="css/homePage-style.css">
+		<link rel="stylesheet" type="text/css" href="font_mds36cq6kz/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/Product_Details_page_style.css" />
+	</head>
+	<body>
+		<header class="header"></header>
+		<section>
+			<div class="kuang">
+				<div class="top">
+					<p>
+						<span class="zi"><a href="homePage.html">首页</a></span>&nbsp;&nbsp;
+						<span>/</span>&nbsp;&nbsp;
+						<span class="zi"><a href="#">配件</a></span>&nbsp;&nbsp;
+						<span>/</span>&nbsp;&nbsp;
+						<span class="zi"><a href="#">男女款配件</a></span>
+					</p>
+				</div>
+				<div id="small-box">
+					<div id="mask"></div>
+				</div>
+				<div id="big-box"></div>
+				<div class="xinxi">
+					<div class="money">
+						<h2>男女款渔夫帽</h2>
+						<b class="jg">￥320.00</b>
+					</div>
+					<div class="colors">
+						<b class="ys">颜色选择：白色</b>
+						<img src="img/shangpin_img/s0.jpg" />
+					</div>
+					<div class="cm">
+						<b class="xzcm">选择尺码:</b>
+						<button class="btn1">S</button>
+						<button class="btn2">L</button>
+					</div>
+					<div class="sl">
+						<b class="xgsl">选购数量:</b>
+						<div class="slxz">
+							<span class="sp1"><a href="#"> - </a></span>
+							<div class="jianhao fuhao" style="display: none;">此商品的最小<br>购买数量为1件</div>
+							<input type="text" value="1" />
+							<span class="sp2"><a href="#"> + </a></span>
+							<div class="jiahao fuhao" style="display: none;">库存有限，此商<br>品最多只能购买1件</div>
+						</div>
+						<p class="xgZi">本款产品每个账号限购5件</p>
+					</div>
+					<div class="gwc">
+						<a href="Cart.html"><button class="btn3">加入购物车</button></a>
+						<button class="btn4">立即购买</button>
+						<span id="xin">
+							<span class="xin">❤</span>
+							<a href="#">收藏该商品</a>
+						</span>
+					</div>
+					<div class="tu">
+						<div class="tu1">
+							<img src="img/shangpin_img/SF.svg" / style="width: 55px; height: 40px;">
+							<span class="sp3">顺丰包邮</span>
+						</div>
+						<div class="tu2">
+							<img src="img/shangpin_img/return.svg" /style="width: 42px; height: 40px;">
+							<span class="sp3">15天无理由退换货</span>
+						</div>
+					</div>
+				</div>
+				<div class="tuul">
+					<ul>
+						<li class="oLi"></li>
+						<li class="oLi"></li>
+						<li class="oLi"></li>
+						<li class="oLi"></li>
+						<li class="oLi"></li>
+					</ul>
+				</div>
+			</div>
+			<div class="xqPic">
+				<img src="img/shangpin_img/HAT.jpg" />
+				<img src="img/shangpin_img/xijie.jpg" />
+				<img src="img/shangpin_img/p2.jpg" />
+				<img src="img/shangpin_img/p1.jpg" />
+				<img src="img/shangpin_img/baozhuang.jpg" />
+			</div>
+			<div class="likeK">
+				<img src="img/shangpin_img/like.png" / class="like">
+				<div class="likeX">
+					<ul>
+						<li>
+							<img src="img/shangpin_img/xie.jpg"/ style="width: 245px; height: 245px;">
+							<div class="xx">
+								<a href="#">男款短袖衬衫</a>
+								<b>￥420.00</b>
+							</div>
+						</li>
+						<li>
+							<img src="img/shangpin_img/xie.jpg"/ style="width: 245px; height: 245px;">
+							<div class="xx">
+								<a href="#">男款短袖衬衫</a>
+								<b>￥420.00</b>
+							</div>
+						</li>
+						<li>
+							<img src="img/shangpin_img/xie.jpg"/ style="width: 245px; height: 245px;">
+							<div class="xx">
+								<a href="#">男款短袖衬衫</a>
+								<b>￥420.00</b>
+							</div>
+						</li>
+						<li>
+							<img src="img/shangpin_img/xie.jpg"/ style="width: 245px; height: 245px;">
+							<div class="xx">
+								<a href="#">男款短袖衬衫</a>
+								<b>￥420.00</b>
+							</div>
+						</li>
+						<button class="hyp">换一批</button>
+					</ul>
+
+				</div>
+			</div>
+		</section>
+		<footer class="footer"></footer>
+	</body>
+</html>
+<script src="js/jQuery.js"></script>
+<script src="js/gotop.js"></script>
+<script>
+	$(function() {
+		$(".header").load("header.html #lastHeader");
+		$(".footer").load("footer.html #foot");
+		$.getScript("js/pull-down_menu.js");
+		$(".sp1").click(function() {
+			$(".jianhao").css({
+				display: "block"
+			});
+		});
+		$(".sp2").click(function() {
+			$(".jiahao").css({
+				display: "block"
+			})
+		})
+	});
+</script>
+<script src="js/MF.js"></script>
+<script>
+	let oSmallBox = document.querySelector("#small-box");
+	let oBigBox = document.querySelector("#big-box");
+	let oMask = document.querySelector("#mask");
+
+	let mf = new MF(oSmallBox, oBigBox, oMask);
+
+	let goods = new GoodsImg();
+	goods.shrink();
+	goods.expand(mf);
+
+	mf.eventBind();
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="css/homePage-style.css">
+		<link rel="stylesheet" type="text/css" href="font_mds36cq6kz/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/signUp.css" />
+	</head>
+	<body>
+		<header class="header"></header>
+
+		<section>
+			<div class="kk">
+				<div class="kk2">
+					<p>用户注册</p>
+					<form action="login.html">
+						<ul>
+							<li>
+								<input type="text" id="input1" name="user1" placeholder="请输入11位手机号" / class="-input"><span id="s"></span>
+							</li>
+							<li>
+								<input type="text" id="input2" name="pwd1" placeholder="8-20个字母，数字或符号组合，请不要输入特殊字符" style="margin-bottom: 0;"/class="-input"><span id="s2"></span>
+							</li>
+							<li>
+								<input type="text" id="input3" placeholder="首次填写密码" style="margin-bottom: 0;"/ class="-input">
+							</li>
+							<li>
+								<input type="text" id="input4" style="margin-bottom: 0; width: 270px; float: ;"/ class="-input">
+								<span class="YZM"><a href="#">获取短信验证码</a></span>
+							</li>
+							<li>
+								<button type="submit" class="lijizhuce">立即注册</button>
+							</li>
+							<li>
+								<input type="checkbox" / class="tongyi">
+								<label>
+									我已阅读并同意VANS的
+									<a href="#" class="lnklike" target="_blank">隐私政策</a>
+									和
+									<a href="#" class="lnklike" target="_blank">使用条款</a>
+								</label>
+							</li>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer"></footer>
+	</body>
+</html>
+<script src="js/jQuery.js"></script>
+<script src="./js/signUp.js"></script>
+<script src="js/gotop.js"></script>
+<script>
+	$(function(){
+		$(".header").load("header.html #lastHeader");
+		$(".footer").load("footer.html #foot");
+		$.getScript("js/pull-down_menu.js")
+	});
+	
+	$("#input1").blur(function(){
+				let regpwd = /^1[35789]\d{9}$/ ;
+				if(regpwd.test(this.value)){
+					$("#s").html("√");
+					flagphone = true;
+				}else{
+					$("#s").html("请输入11位手机号");
+					flagphone = false;
+				}
+			})
+		
+	$("#input2").blur(function(){
+			let regpwd = /(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^.{8,20}$/ ;
+			if(regpwd.test(this.value)){
+				$("#s2").html("√");
+				flagpwd = true;
+			}else{
+				$("#s2").html("8-20个字母，数字或符号组合，请不要输入特殊字符");
+				flagpwd = false;
+			}
+		})
+		
+		$(".lijizhuce").click(function(){
+			if(flagphone && flagpwd){
+				return true
+			}else{
+				return false
+			}
+		})
+</script>

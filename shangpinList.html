@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>商品列表</title>
+		<link rel="stylesheet" type="text/css" href="css/homePage-style.css">
+		<link rel="stylesheet" type="text/css" href="font_mds36cq6kz/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/shangpinList.css"/>
+	</head>
+	<body>
+		<header class="header"></header>
+		<section style="background-color: #F1F2ED;">
+			<div class="list">
+				<div class="list1">
+					<a href="Product_Details_page.html"><img src="img/shangpin_img/s0.jpg" /></a>
+					<p class="mc1">男女款渔夫帽</p>
+					<p class="mc2" style="color: #C9192E;">￥320.00</p>
+				</div>
+				<div class="list1">
+					<a href="Product_Details_page2.html"><img src="img/shangpin2_img/2.jpg" /></a>
+					<p class="mc1">男女款鸭舌帽</p>
+					<p class="mc2" style="color: #C9192E;">￥260.00</p>
+				</div>
+			</div>
+		</section>
+		<footer class="footer"></footer>
+	</body>
+</html>
+<script src="js/jQuery.js"></script>
+<script src="js/gotop.js"></script>
+<script>
+	$(function() {
+		$(".header").load("header.html #lastHeader");
+		$(".footer").load("footer.html #foot");
+		$.getScript("js/pull-down_menu.js")
+	});
+</script>

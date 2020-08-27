@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="css/homePage-style.css">
+		<link rel="stylesheet" type="text/css" href="font_mds36cq6kz/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	</head>
+	<body>
+		<header class="header"></header>
+
+		<section>
+			<div class="kuang">
+				<div class="kuang2">
+					<p>用户名登录</p>
+					<p style="color: #000000; border: #000000;">手机快捷登录</p>
+					<form action="homePage.html">
+						<ul>
+							<li>
+								<input type="text" id="input1" name="user1" placeholder="手机号/用户名" />
+							</li>
+							<li>
+								<input type="text" id="input2" name="pwd1" placeholder="登录密码" style="margin-bottom: 0;"/>
+							</li>
+							<li><a href="#" class="wjmm">忘记密码?</a></li>
+							<li>
+								<input type="submit" value="立即登录"/ class="btn">
+								<span><a href="register.html">注册</a></span>
+							</li>
+						</ul>
+					</form>
+					<span class="otherDl">使用其他方法登录：</span>
+					<span class="zttb">
+						<a href="#"><i class="iconfont icon-weixin"></i></a>
+						<a href="#"><i class="iconfont icon-weibo"></i></a>
+						<a href="#"><i class="iconfont icon-qq"></i></a>
+						<a href="#"><i class="iconfont icon-zhifubao"></i></a>
+					</span>
+						
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer"></footer>
+	</body>
+</html>
+<script src="js/jQuery.js"></script>
+<script src="js/login.js"></script>
+<script src="js/gotop.js"></script>
+<script>
+	$(function() {
+		$(".header").load("header.html #lastHeader");
+		$(".footer").load("footer.html #foot");
+		$.getScript("js/pull-down_menu.js")
+	});
+</script>
+

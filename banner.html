@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>banner</title>
+		<style type="text/css">
+			body,
+			div,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul,
+			li,
+			ol {
+				list-style: none;
+			}
+
+			li {
+				float: left;
+			}
+
+			.scroll {
+				position: absolute;
+			}
+
+			.scroll-ul {
+				position: relative;
+				left: 50px;
+				width: 1440px;
+				height: 600px;
+				overflow: hidden;
+			}
+
+			.spot-ul {
+				position: absolute;
+				left: 690px;
+				bottom: 10px;
+				overflow: hidden;
+			}
+
+			.spot-ul li {
+				width: 10px;
+				height: 10px;
+				border-radius: 50px;
+				background: #eee;
+				margin-left: 20px;
+			}
+
+			.spot-ul li.on {
+				background: #000000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="scroll">
+			<ul class="scroll-ul">
+				<li class="scroll-li"><img src="img/1.jpg" /></li>
+				<li class="scroll-li"><img src="img/2.jpg" /></li>
+			</ul>
+			<!-- 图片对应小圆点 -->
+			<ol class="spot-ul">
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+	</body>
+</html>
+<script src="js/jQuery.js"></script>
+<script>
+	$(document).ready(function() {
+		var length,
+			currentIndex = 0,
+			interval,
+			hasStarted = false, //轮播图是否开始
+			t = 2500; //轮播时间
+		length = $('.scroll-li').length;
+		//将除了第一个其他li隐藏
+		$('.scroll-li:not(:first)').hide();
+		//给第一个圆点赋值激活
+		$('.spot-ul li:first').addClass('on');
+		// 小圆点hover效果
+		$('.spot-ul li').hover(function(e) {
+			stop();
+			var preIndex = $(".spot-ul li").filter(".on").index(); //
+			currentIndex = $(this).index(); //
+			play(preIndex, currentIndex);
+		}, function() {
+			start();
+		});
+		//从preIndex页翻到currentIndex页
+		// preIndex翻页的起始页
+		// currentIndex整数，翻到的那页
+		function play(preIndex, currentIndex) {
+			$('.scroll-li').eq(preIndex).fadeOut(1000).parent().children().eq(currentIndex).fadeIn(1000);
+			$('.spot-ul li').removeClass('on');
+			$('.spot-ul li').eq(currentIndex).addClass('on');
+		}
+		// 自动向后翻页
+		function next() {
+			var preIndex = currentIndex;
+			currentIndex = ++currentIndex % length;
+			play(preIndex, currentIndex);
+		}
+		// 开始轮播
+		function start() {
+			if (!hasStarted) {
+				hasStarted = true;
+				interval = setInterval(next, t);
+			}
+		}
+		//停止轮播
+		function stop() {
+			clearInterval(interval);
+			hasStarted = false;
+		}
+		//开始轮播
+		start();
+	});
+</script>
